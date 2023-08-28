@@ -18,4 +18,3 @@
 //     console.log('Message: ', msg);
 // })('Chao ban')
 
-console.log(5**3)
