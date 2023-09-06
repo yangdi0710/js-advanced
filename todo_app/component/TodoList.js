@@ -4,7 +4,7 @@ import TodoItem from './TodoItem.js'
 
 const connector = connect()
 
-function TodoList({ todos, filters }){
+function TodoList({ todos, filter, filters }){
     console.log(filters)
     return html`
         <section class="main">
@@ -17,7 +17,11 @@ function TodoList({ todos, filters }){
             >
             <label for="toggle-all">Mark all as complete</label>
             <ul class="todo-list">
-                ${todos.map((todo, index) => TodoItem({ todo, index }))}
+                ${todos
+                    .filter(filters[filter])
+                    .map((todo, index) => 
+                        TodoItem({ todo, index })
+                    )}
             </ul>
         </section>
     `
